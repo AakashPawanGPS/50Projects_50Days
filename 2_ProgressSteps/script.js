@@ -1,4 +1,4 @@
-const progress = document.getElementById('progress');
+const progress = document.getElementsByClassName('progress');
 const prev = document.getElementById('prev');
 const next = document.getElementById('next');
 const circles = document.querySelectorAll('.circle');
@@ -33,8 +33,10 @@ function update() {
 
     const actives = document.querySelectorAll('.active')
 
-    var num = (actives.length - 1) / (circles.length - 1) * 100;
-    progress.style.width = num + '%'
+    var num = Math.floor((actives.length - 1) / (circles.length - 1) * 100);
+    var res = `${num}%`
+    console.log(res)
+    document.getElementById('progress').style.width = res
 
     if (currentActive === 1) {
         prev.disabled = true;
